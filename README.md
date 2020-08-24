@@ -2,7 +2,7 @@
 
 # GREETR Javascript Library
 
-Following Udemy's Javascript: Understanding the Weird Parts (Building a Library/Framework).
+`Javascript: Understanding the Weird Parts` final project: Building a Library/Framework!
 
 ## Official Requirements
 
