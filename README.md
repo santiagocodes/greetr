@@ -123,3 +123,30 @@ var g = G$('John', 'Doe');
 g.greet().setLang('fr').greet(true);
 // console output: Uncaught Invalid language
 ```
+
+## Adding jQuery Support
+
+```javascript
+HTMLGreeting: function (selector, formal) {
+
+    if (!$) {
+        throw 'jQuery not loaded';
+    }
+
+    if (!selector) {
+        throw 'Missing jQuery selector';
+    }
+
+    var msg;
+
+    if (formal) {
+        msg = this.formalGreetings();
+    } else {
+        msg = this.greeting();
+    }
+
+    $(selector).html(msg);
+
+    return this;
+},
+```
