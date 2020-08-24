@@ -3,7 +3,66 @@
       return new Greeter.init(firstName, lastName, language);
    };
 
-   Greetr.prototype = {};
+   var supportedLangs = ['en', 'es'];
+
+   var greetings = {
+      en: 'Hello',
+      es: 'Hola',
+   };
+
+   var logMassages = {
+      en: 'Logged In',
+      es: 'Inicio Sesion',
+   };
+
+   var formalGreetings = {
+      en: 'Greetings',
+      es: 'Saludos',
+   };
+
+   Greetr.prototype = {
+      fullName: function () {
+         return this.firstName + ' ' + this.lastName;
+      },
+      validate: function () {
+         if (supportedLangs.indexOf(this.language) === -1) {
+            throw 'Invalid language.';
+         }
+      },
+      greeting: function () {
+         return greetings[this.language] + ' ' + this.firstName + '!';
+      },
+      formalGreetings: function () {
+         return formalGreetings[this.language] + ', ' + this.fullName() + '.';
+      },
+      greet: function (formal) {
+         var msg;
+         if (formal) {
+            msg = this.formalGreetings();
+         } else {
+            msg = this.greeting();
+         }
+
+         if (console) {
+            console.log(msg);
+         }
+
+         // 'this' refers to the calling object at execution time
+         // makes the method chainable
+         return this;
+      },
+      log: function () {
+         if (console) {
+            console.log(logMessages[this.language] + ': ' + this.fullName());
+         }
+         return this;
+      },
+      setLang: function (lang) {
+         this.language = lang;
+         this.validate();
+         return this;
+      },
+   };
 
    Greeter.init = function (firstName, lastName, language) {
       var self = this;
