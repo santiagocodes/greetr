@@ -1,7 +1,7 @@
 (function (global, $) {
    // 'new' an object
    var Greetr = function (firstName, lastName, language) {
-      return new Greeter.init(firstName, lastName, language);
+      return new Greetr.init(firstName, lastName, language);
    };
 
    // hidden within the scope of the IIFE and never directly accessible
@@ -112,7 +112,7 @@
    };
 
    // the actual object is created here, allowing us to 'new' an object without calling 'new'
-   Greeter.init = function (firstName, lastName, language) {
+   Greetr.init = function (firstName, lastName, language) {
       var self = this;
       self.firstName = firstName || '';
       self.lastName = lastName || '';

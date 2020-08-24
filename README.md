@@ -21,12 +21,12 @@ Following Udemy's Javascript: Understanding the Weird Parts (Building a Library/
 ```javascript
 (function (global, $) {
    var Greetr = function (firstName, lastName, language) {
-      return new Greeter.init(firstName, lastName, language);
+      return new Greetr.init(firstName, lastName, language);
    };
 
    Greetr.prototype = {};
 
-   Greeter.init = function (firstName, lastName, language) {
+   Greetr.init = function (firstName, lastName, language) {
       var self = this;
       self.firstName = firstName || '';
       self.lastName = lastName || '';
@@ -149,4 +149,18 @@ HTMLGreeting: function (selector, formal) {
 
     return this;
 },
+```
+
+## Using the Framework
+
+```javascript
+// app.js
+
+$('#login').click(function () {
+   var loginGrtr = G$('John', 'Doe');
+
+   $('#logindiv').hide();
+
+   loginGrtr.setLang($('#lang').val()).HTMLGreeting('#greeting', true).log();
+});
 ```

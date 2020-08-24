@@ -1,15 +1,10 @@
 var g = G$('John', 'Doe');
 g.greet();
-// console output: Hello John!
 
-var g = G$('John', 'Doe');
-g.greet().greet(true);
-// console output: Greetings, John Doe.
+$('#login').click(function () {
+   var loginGrtr = G$('John', 'Doe');
 
-var g = G$('John', 'Doe');
-g.greet().setLang('es').greet(true);
-// console output: Saludos, John Doe.
+   $('#logindiv').hide();
 
-var g = G$('John', 'Doe');
-g.greet().setLang('fr').greet(true);
-// console output: Uncaught Invalid language
+   loginGrtr.setLang($('#lang').val()).HTMLGreeting('#greeting', true).log();
+});
